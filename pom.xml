@@ -28,7 +28,7 @@
   <properties>
 
     <spring.version>5.2.8.RELEASE</spring.version>
-    <spring-security.version>5.3.4.RELEASE</spring-security.version>
+    <spring-security.version>5.3.9.RELEASE</spring-security.version>
 
     <essentials.version>14.0.0</essentials.version>
     <hippo.commons.version>14.0.0</hippo.commons.version>
