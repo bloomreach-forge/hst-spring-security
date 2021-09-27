@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2019 BloomReach, Inc. (https://www.bloomreach.com)
+  Copyright 2011-2021 BloomReach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -63,8 +63,8 @@
           After restarting it, <strong>Hippo spring security plugin</strong> is already configured.
         </p>
         <p>
-          Essentials also copies all the configuration files explained in the <a href="configuration.html">Configuration</a> page
-          to your project.
+          Essentials also copies all the configuration files explained in the
+          <a href="configuration.html">Configuration</a> page to your project.
         </p>
         <p>&nbsp;</p>
       </subsection>
@@ -75,7 +75,8 @@
 
       <subsection name="Add the Forge repository configuration">
 
-        <p>In the main <code>pom.xml</code> of the project, in the <code>repositories</code> section, add this repository if it is not configured there yet.</p>
+        <p>In the main <code>pom.xml</code> of the project, in the <code>repositories</code> section, add this repository
+          if it is not configured there yet.</p>
 
         <div class="brush: xml">
           <source><![CDATA[
@@ -83,13 +84,6 @@
       <id>hippo-forge</id>
       <name>Bloomreach Forge maven 2 repository.</name>
       <url>https://maven.onehippo.com/maven2-forge/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <layout>default</layout>
     </repository>
         ]]></source>
         </div>
@@ -98,12 +92,13 @@
 
       <subsection name="Add version properties to the project pom">
 
-        <p>In the main <code>pom.xml</code> of the project, in the properties section, add these properties. For the correct version numbers, check the <a href="release-notes.html">Release Notes</a> page.</p>
+        <p>In the main <code>pom.xml</code> of the project, in the properties section, add these properties. For the
+          correct version numbers, check the <a href="release-notes.html">Release Notes</a> page.</p>
 
         <div class="brush: xml">
           <source><![CDATA[
     <spring.security.version>version.number</spring.security.version>
-    <hst-springsec.version>version.number</hst-springsec.version>
+    <forge.hst-springsec.version>version.number</forge.hst-springsec.version>
         ]]></source>
         </div>
 
@@ -246,7 +241,7 @@
     <dependency>
       <groupId>org.onehippo.forge.hst-springsec</groupId>
       <artifactId>hst-springsec</artifactId>
-      <version>${hst-springsec.version}</version>
+      <version>${forge.hst-springsec.version}</version>
     </dependency>
         ]]></source>
         </div>
