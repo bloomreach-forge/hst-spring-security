@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2019 BloomReach, Inc. (https://www.bloomreach.com)
+  Copyright 2011-2021 BloomReach, Inc. (https://www.bloomreach.com)
  
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -337,12 +337,16 @@
                 when configuring the hst:roles property.
         </em>
         <p>
-          HST Spring Security Support supports the same feature for authorization as the default HST-2 Security module provides.
-          So, please refer to the following link in order to learn how to set authorization.
+          HST Spring Security Support supports the same feature for authorization as the default HST Security module provides.
+          So, please refer to <a href="https://documentation.bloomreach.com/14/library/concepts/security/delivery-tier-authentication.html">Delivery Tier Authentication Configuration</a>
+          in order to learn how to set authentication.
         </p>
-        <ul>
-          <li><a href="http://www.onehippo.org/library/concepts/security/hst-2-authentication-and-authorization-support.html">HST-2 Authentication and Authorization Support</a>.</li>
-        </ul>
+        <p>In case you need Repository Level Authorization and make use of
+          <a href="https://documentation.bloomreach.com/14/library/concepts/security/delivery-tier-authorization.html">Delivery Tier Authorization Configuration</a>
+          (using hst:subjectbasedsession property) you should set
+          <a href="https://docs.spring.io/spring-security/site/docs/5.3.x/reference/html5/#nsa-authentication-manager-attributes">'erase-credentials=false'</a>
+          in the authentication manager configuration.
+        </p>
       </subsection>
       <subsection name="Using Standard Security APIs">
         <p>
