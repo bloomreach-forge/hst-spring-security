@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/bloomreach-forge/hst-spring-security.svg?branch=develop)](https://travis-ci.org/bloomreach-forge/hst-spring-security)
-
 # HST Spring Security Support
 
 [Spring Security](http://projects.spring.io/spring-security/) is a powerful and highly customizable authentication
