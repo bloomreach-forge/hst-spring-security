@@ -60,7 +60,7 @@
 
   <properties>
 
-    <spring-security.version>5.6.1</spring-security.version>
+    <spring-security.version>5.6.4</spring-security.version>
     <hst-springsec.version>${project.version}</hst-springsec.version>
 
     <!--***START temporary override of versions*** -->
