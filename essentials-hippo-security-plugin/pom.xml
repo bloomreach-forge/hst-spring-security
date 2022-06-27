@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2018-2020 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2018-2022 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+   https://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,32 +20,28 @@
   <parent>
     <groupId>org.onehippo.forge.hst-springsec</groupId>
     <artifactId>hst-springsec-plugin</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
   </parent>
 
-  <name>Hippo spring security  plugin</name>
+  <name>HST Spring Security Essentials Plugin</name>
   <description>HST Spring Security Support project provides seamless integration with Spring Security for HST-2 SITE applications.</description>
   <artifactId>hst-springsec-essentials</artifactId>
   <dependencies>
     <dependency>
       <groupId>javax.jcr</groupId>
       <artifactId>jcr</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-essentials-plugin-sdk-implementation</artifactId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
@@ -58,5 +54,14 @@
         <directory>src/main/resources</directory>
       </resource>
     </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

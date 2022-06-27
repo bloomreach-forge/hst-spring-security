@@ -5,13 +5,13 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
 <%--
-  Copyright 2018 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2022 Bloomreach Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+   https://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,7 +30,7 @@
 <h1>Log In</h1>
 <hr/>
 
-You can use your username/password on Hippo CMS for instance.
+You can use your username/password for Bloomreach Experience Manager.
 <br/><br/>
 
 <form action="<hst:link path='/'/>login" method="post">

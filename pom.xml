@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2020 BloomReach, Inc. (https://www.bloomreach.com)
+  Copyright 2011-2022 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+       https://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,56 +17,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.onehippo.cms7</groupId>
+    <artifactId>hippo-cms7-project</artifactId>
+    <version>15.0.0</version>
+  </parent>
+
   <name>HST Spring Security Support</name>
-  <description>HST Spring Security Support Components</description>
+  <description>HST Spring Security Support</description>
   <groupId>org.onehippo.forge.hst-springsec</groupId>
   <artifactId>hst-springsec-plugin</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
   <packaging>pom</packaging>
   <url>https://bloomreach-forge.github.io/hst-spring-security/</url>
 
-  <properties>
-
-    <spring.version>5.2.1.RELEASE</spring.version>
-    <spring-security.version>5.2.1.RELEASE</spring-security.version>
-
-    <essentials.version>14.0.0</essentials.version>
-    <hippo.commons.version>14.0.0</hippo.commons.version>
-    <hippo.hst.version>14.0.0</hippo.hst.version>
-    <hippo-services.version>14.0.0</hippo-services.version>
-    <hippo-repository-api.version>14.0.0</hippo-repository-api.version>
-
-
-    <commons.lang.version>2.6</commons.lang.version>
-    <commons-beanutils.version>1.8.0</commons-beanutils.version>
-    <commons-proxy.version>1.0</commons-proxy.version>
-
-    <lib.junit.version>4.8.2</lib.junit.version>
-    <lib.easymock.version>3.0</lib.easymock.version>
-    <slf4j.version>1.7.25</slf4j.version>
-    <log4j2.version>2.11.1</log4j2.version>
-    <jcr.version>2.0</jcr.version>
-    <servlet-api.version>3.0.1</servlet-api.version>
-
-    <plugin.compiler.version>3.1</plugin.compiler.version>
-    <plugin.clean.version>2.5</plugin.clean.version>
-    <plugin.deploy.version>2.8.1</plugin.deploy.version>
-    <plugin.install.version>2.5.1</plugin.install.version>
-    <plugin.jar.version>2.4</plugin.jar.version>
-    <plugin.javadoc.version>2.9.1</plugin.javadoc.version>
-    <plugin.jxr.version>2.3</plugin.jxr.version>
-    <plugin.project-info-reports.version>2.7</plugin.project-info-reports.version>
-    <plugin.release.version>2.5</plugin.release.version>
-    <plugin.resources.version>2.6</plugin.resources.version>
-    <plugin.site.version>3.6</plugin.site.version>
-    <plugin.source.version>2.2.1</plugin.source.version>
-    <plugin.surefire.version>2.17</plugin.surefire.version>
-    <plugin.surefire-report.version>2.17</plugin.surefire-report.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.javaVersion>1.8</project.build.javaVersion>
-
-
-  </properties>
   <modules>
     <module>plugin</module>
     <module>essentials-hippo-security-plugin</module>
@@ -75,7 +39,7 @@
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -84,8 +48,6 @@
     <developer>
       <name>Woonsan Ko</name>
       <id>woonsanko</id>
-      <email>woonsan . ko @ bloomreach . com</email>
-      <organization>BloomReach</organization>
       <roles>
         <role>Project Lead</role>
         <role>Java Developer</role>
@@ -106,11 +68,6 @@
     <url>https://issues.onehippo.com/browse/HIPFORGE</url>
   </issueManagement>
 
-  <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/bloomreach-forge/hst-spring-security</url>
-  </ciManagement>
-
   <distributionManagement>
     <repository>
       <name>Hippo Maven 2 Forge Repository</name>
@@ -123,13 +80,8 @@
   <repositories>
     <repository>
       <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>http://maven.onehippo.com/maven2/</url>
-    </repository>
-    <repository>
-      <id>hippo-maven2-forge</id>
-      <name>Hippo Maven 2 Forge</name>
-      <url>http://maven.onehippo.com/maven2-forge</url>
+      <name>Hippo Maven 2 repository</name>
+      <url>https://maven.onehippo.com/maven2/</url>
     </repository>
   </repositories>
 
@@ -138,23 +90,22 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-        <version>${essentials.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-essentials-plugin-sdk-implementation</artifactId>
-        <version>${essentials.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>javax.jcr</groupId>
         <artifactId>jcr</artifactId>
-        <version>${jcr.version}</version>
+        <version>${javax.jcr.version}</version>
         <scope>provided</scope>
       </dependency>
-
 
       <dependency>
         <groupId>javax.servlet</groupId>
@@ -165,22 +116,43 @@
 
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
+        <artifactId>hippo-repository-api</artifactId>
+        <version>${hippo.release.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.onehippo.cms7</groupId>
+        <artifactId>hippo-services</artifactId>
+        <version>${hippo.release.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-commons</artifactId>
-        <version>${hippo.commons.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7.hst</groupId>
         <artifactId>hst-api</artifactId>
-        <version>${hippo.hst.version}</version>
+        <version>${hippo.release.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.onehippo.cms7.hst.components</groupId>
+        <artifactId>hst-security</artifactId>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7.hst</groupId>
         <artifactId>hst-commons</artifactId>
-        <version>${hippo.hst.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -340,7 +312,7 @@
       <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
-        <version>${commons.lang.version}</version>
+        <version>${commons-lang.version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -351,157 +323,15 @@
         <scope>provided</scope>
       </dependency>
 
-      <!-- TEST DEPENDENCIES -->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
         <version>${slf4j.version}</version>
         <scope>provided</scope>
       </dependency>
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-slf4j-impl</artifactId>
-        <version>${log4j2.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-api</artifactId>
-        <version>${log4j2.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-core</artifactId>
-        <version>${log4j2.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <!-- only (should) be needed to (test)compile log4j1.x (backward compatible) usages -->
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-1.2-api</artifactId>
-        <version>${log4j2.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${lib.junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.easymock</groupId>
-        <artifactId>easymock</artifactId>
-        <version>${lib.easymock.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-proxy</artifactId>
-        <version>${commons-proxy.version}</version>
-        <scope>test</scope>
-      </dependency>
 
     </dependencies>
   </dependencyManagement>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${plugin.project-info-reports.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>${plugin.jxr.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${plugin.javadoc.version}</version>
-        <configuration>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${plugin.surefire-report.version}</version>
-      </plugin>
-    </plugins>
-  </reporting>
-
-  <build>
-
-    <defaultGoal>package</defaultGoal>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${plugin.compiler.version}</version>
-        <configuration>
-          <source>${project.build.javaVersion}</source>
-          <target>${project.build.javaVersion}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>${plugin.clean.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>${plugin.install.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${plugin.deploy.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${plugin.jar.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${plugin.surefire.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>${plugin.resources.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>${plugin.site.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>${plugin.source.version}</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-
-  </build>
 
   <profiles>
     <!-- Only for generating/publishing GitHub Site Pages into docs/ folder from master branch. -->
@@ -512,7 +342,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-site-plugin</artifactId>
-            <version>${plugin.site.version}</version>
             <configuration>
               <outputDirectory>docs</outputDirectory>
             </configuration>
