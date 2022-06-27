@@ -27,10 +27,10 @@
             Plugin Version
           </th>
           <th>
-            Spring Security Framework Version
+            Spring Security Version
           </th>
           <th>
-            CMS Release Version
+            brXM Release Version
           </th>
         </tr>
         <tr>
@@ -76,20 +76,22 @@
     </section>
     <section name="Release Notes">
       <subsection name="4.0.0">
-        <p class="smallinfo">Release date:TBD</p>
+        <p class="smallinfo">Release date: 27 June 2022</p>
         <ul>
           <li>
             <a href='https://issues.onehippo.com/browse/HIPFORGE-421'>HIPFORGE-421</a><br/>
-            - Upgraded Demo to v15
-            - Upgraded plugin and dependencies to support v15, Java 11
-            - Bump (provided) Spring dependency version from 5.2.1.RELEASE to 5.6.1<br/>
-            - Bump (provided) Spring Security dependency version from 5.2.1.RELEASE to 5.6.1<br/>
-            - Bump (provided) commons-beanutils dependency version from 1.8.0 to 1.9.4
+             Upgrade plugin to support brXM 15, mainly build on Java 11 and upgrade the demo project to version 15.
+          </li>
+          <li>
+            Dependency management: extend from hippo-cms7-project 15 to inherit versions, notably:<br/>
+            - Spring framework dependency version goes from 5.2.1.RELEASE to 5.3.18<br/>
+            - Spring Security dependency version goes from 5.2.1.RELEASE to 5.6.1<br/>
+            Note that the dependencies have 'provided' scope so the dependencies are not pulled in.
           </li>
         </ul>
       </subsection>
       <subsection name="3.1.0 (Unreleased)">
-        <p class="smallinfo">Release date:TBD</p>
+        <p class="smallinfo">Release date: TBD</p>
         <ul>
           <li>
             <a href='https://issues.onehippo.com/browse/HIPFORGE-353'>HIPFORGE-353</a><br/>
