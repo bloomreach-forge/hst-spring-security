@@ -27,7 +27,7 @@
   <description>HST Spring Security Support</description>
   <groupId>org.onehippo.forge.hst-springsec</groupId>
   <artifactId>hst-springsec-plugin</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
+  <version>4.0.0</version>
   <packaging>pom</packaging>
   <url>https://bloomreach-forge.github.io/hst-spring-security/</url>
 
