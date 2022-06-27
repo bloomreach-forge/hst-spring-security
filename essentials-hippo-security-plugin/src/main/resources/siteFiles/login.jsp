@@ -30,7 +30,7 @@
 <h1>Log In</h1>
 <hr/>
 
-You can use your username/password on Hippo CMS for instance.
+You can use your username/password for Bloomreach Experience Manager.
 <br/><br/>
 
 <form action="<hst:link path='/'/>login" method="post">
