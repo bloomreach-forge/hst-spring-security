@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>15.0.0</version>
+    <version>16.0.0</version>
   </parent>
 
   <name>HST Spring Security Support Demo Project</name>
@@ -60,15 +60,12 @@
 
   <properties>
 
-    <spring-security.version>5.6.1</spring-security.version>
+    <spring-security.version>6.3.0</spring-security.version>
     <hst-springsec.version>${project.version}</hst-springsec.version>
-
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <essentials.version>15.0.0</essentials.version>
-    <jsp-api.version>2.2</jsp-api.version>
-    <taglibs.version>1.2.5</taglibs.version>
+    <essentials.version>16.0.0</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -219,8 +216,8 @@
       </dependency>
 
       <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
+        <groupId>jakarta.servlet.jsp</groupId>
+        <artifactId>jakarta.servlet.jsp-api</artifactId>
         <version>${jsp-api.version}</version>
         <scope>provided</scope>
       </dependency>
@@ -246,7 +243,6 @@
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
       </dependency>
-
     </dependencies>
   </dependencyManagement>
 
@@ -411,8 +407,8 @@
           <scope>compile</scope>
         </dependency>
         <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
+          <groupId>jakarta.annotation</groupId>
+          <artifactId>jakarta.annotation-api</artifactId>
           <scope>compile</scope>
         </dependency>
         <dependency>
@@ -430,7 +426,7 @@
         <plugins>
           <plugin>
             <groupId>org.codehaus.cargo</groupId>
-            <artifactId>cargo-maven2-plugin</artifactId>
+            <artifactId>cargo-maven3-plugin</artifactId>
             <configuration>
               <configuration>
                 <configfiles>
@@ -529,8 +525,8 @@
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
+          <groupId>jakarta.annotation</groupId>
+          <artifactId>jakarta.annotation-api</artifactId>
           <scope>provided</scope>
         </dependency>
         <dependency>
