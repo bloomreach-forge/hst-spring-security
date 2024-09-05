@@ -20,14 +20,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>15.0.0</version>
+    <version>16.0.0</version>
   </parent>
 
   <name>HST Spring Security Support</name>
   <description>HST Spring Security Support</description>
   <groupId>org.onehippo.forge.hst-springsec</groupId>
   <artifactId>hst-springsec-plugin</artifactId>
-  <version>4.0.0</version>
+  <version>5.0.0</version>
   <packaging>pom</packaging>
   <url>https://bloomreach-forge.github.io/hst-spring-security/</url>
 
@@ -76,7 +76,6 @@
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
-
   <repositories>
     <repository>
       <id>hippo</id>
@@ -108,8 +107,8 @@
       </dependency>
 
       <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
         <version>${servlet-api.version}</version>
         <scope>provided</scope>
       </dependency>

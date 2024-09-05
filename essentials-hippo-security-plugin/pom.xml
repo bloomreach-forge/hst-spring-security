@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.forge.hst-springsec</groupId>
     <artifactId>hst-springsec-plugin</artifactId>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
   </parent>
 
   <name>HST Spring Security Essentials Plugin</name>
@@ -32,8 +32,8 @@
       <artifactId>jcr</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>

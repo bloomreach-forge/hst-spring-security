@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2022 Bloomreach, Inc. (https://www.bloomreach.com)
+  Copyright 2011-2024 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -32,6 +32,11 @@
           <th>
             brXM Release Version
           </th>
+        </tr>
+        <tr>
+          <td>5.x</td>
+          <td>6.3.0</td>
+          <td>16.x</td>
         </tr>
         <tr>
           <td>4.x</td>
@@ -75,6 +80,15 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="5.0.0">
+        <p class="smallinfo">Release date: 05 September 2024</p>
+        <ul>
+          <li>
+            <a href='https://issues.onehippo.com/browse/FORGE-525'>FORGE-525</a><br/>
+             Upgrade plugin to support brXM 16, JDK17
+          </li>
+        </ul>
+      </subsection>
       <subsection name="4.0.0">
         <p class="smallinfo">Release date: 27 June 2022</p>
         <ul>
