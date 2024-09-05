@@ -68,6 +68,7 @@
   <authentication-manager>
     <authentication-provider ref="hippoAuthenticationProvider" />
   </authentication-manager>
+  <beans:bean id="mvcHandlerMappingIntrospector" class="org.springframework.web.servlet.handler.HandlerMappingIntrospector"/>
 
   <!--
     Hippo Repository based Authentication Provider. This Authentication Provider provide authentication against Hippo Repository Security Store.
