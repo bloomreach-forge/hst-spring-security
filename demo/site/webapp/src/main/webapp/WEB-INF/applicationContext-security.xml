@@ -15,7 +15,15 @@
   <http pattern="/css/**" security="none"/>
   <http pattern="/images/**" security="none"/>
   <http pattern="/script/**" security="none"/>
+  <!--
+    The /binaries endpoint is a servlet that internally translates requests like:
+    /binaries/content/gallery/image.jpg
+    to:
+    /content/gallery/image.jpg
+    Therefore, we must explicitly allow both /binaries/** and /content/** patterns.
+  -->
   <http pattern="/binaries/**" security="none"/>
+  <http pattern="/content/**" security="none"/>
   <http pattern="/webfiles/**" security="none" />
 
   <!-- Channel Manager requests may bypass authentication -->
@@ -42,11 +50,34 @@
       <frame-options policy="SAMEORIGIN" />
     </headers>
 
-    <!-- Example configuration to allow anonymous access as well as authenticated access. -->
+    <!--
+      Authentication endpoint configuration.
+      Allow both anonymous and authenticated users to access login/logout.
+    -->
     <intercept-url pattern="/login.jsp*" access="isAnonymous() or hasRole('everybody')" />
     <intercept-url pattern="/logout*" access="isAnonymous() or hasRole('everybody')" />
 
-    <!-- Example configuration to allow only authenticated access to users having 'ROLE_everybody'. -->
+    <!--
+      Public endpoints - accessible without authentication.
+      These allow visitors to browse site content (news, events, etc.) without logging in.
+    -->
+    <intercept-url pattern="/$" access="permitAll()" />
+    <intercept-url pattern="/news**" access="permitAll()" />
+    <intercept-url pattern="/events**" access="permitAll()" />
+    <intercept-url pattern="/about**" access="permitAll()" />
+
+    <!--
+      Admin/Protected endpoints - requires authentication.
+      Users must have 'everybody' role to access these sections.
+    -->
+    <intercept-url pattern="/admin**" access="hasRole('admin')" />
+    <intercept-url pattern="/profile**" access="hasRole('everybody')" />
+
+    <!--
+      Catch-all: Default behavior for any remaining patterns.
+      Currently allows authenticated users with 'everybody' role.
+      For a more restrictive policy, consider using 'denyAll()' and explicitly allowing only known patterns.
+    -->
     <intercept-url pattern="/**" access="hasRole('everybody')" />
 
     <!-- Note: Enable http-basic element instead of form-login if you want to use Basic Authentication. -->
