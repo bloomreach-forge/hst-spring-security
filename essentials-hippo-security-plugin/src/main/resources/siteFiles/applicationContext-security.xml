@@ -27,6 +27,8 @@
   <http pattern="/images/**" security="none"/>
   <http pattern="/script/**" security="none"/>
   <http pattern="/binaries/**" security="none"/>
+  <!-- The /binaries servlet internally translates requests to /content/**, so both patterns must be excluded -->
+  <http pattern="/content/**" security="none"/>
   <http pattern="/webfiles/**" security="none"/>
 
   <!-- Channel Manager requests may bypass authentication -->
