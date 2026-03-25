@@ -80,6 +80,19 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="5.0.1">
+        <p class="smallinfo">Release date: TBD</p>
+        <ul>
+          <li>
+            <a href='https://issues.onehippo.com/browse/FORGE-559'>FORGE-559</a><br/>
+            Fix Spring Security 6 endpoint configuration for binary servlet resources:
+            add missing <code>/content/**</code> security-none pattern required because
+            the <code>/binaries</code> servlet internally translates requests to <code>/content/**</code> paths.
+            Adds a realistic public/protected endpoint model to the demo and documents
+            the Spring Security 6 endpoint configuration guide in the README.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="5.0.0">
         <p class="smallinfo">Release date: 05 September 2024</p>
         <ul>

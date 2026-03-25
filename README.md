@@ -38,3 +38,80 @@ You can generate the GitHub pages only from ```master``` branch by this command:
 The output is in the ```docs/``` directory by default. You can open ```docs/index.html``` in a browser.
 
 You can push it and GitHub Pages will be served for the site automatically.
+
+## Spring Security 6 Configuration Guide
+
+### Critical Change: Explicit Endpoint Definitions Required
+
+Spring Security 6 requires **every endpoint to be explicitly defined**. Unlike earlier versions, undefined endpoints return 403 Forbidden — this includes static resources (CSS, JS, images) and binary servlet paths.
+
+### Static Resources and the `/binaries` Servlet
+
+The `/binaries` servlet internally translates requests to `/content/**` paths:
+
+```
+/binaries/content/gallery/logo.jpg  →  /content/gallery/logo.jpg
+```
+
+Both patterns must be explicitly excluded from security:
+
+```xml
+<http pattern="/binaries/**" security="none"/>
+<http pattern="/content/**" security="none"/>
+```
+
+Forgetting `/content/**` causes 403 errors on all binary/media assets.
+
+Full set of static resource exclusions for a typical brXM site:
+
+```xml
+<http pattern="/css/**"             security="none"/>
+<http pattern="/images/**"          security="none"/>
+<http pattern="/script/**"          security="none"/>
+<http pattern="/binaries/**"        security="none"/>
+<http pattern="/content/**"         security="none"/>
+<http pattern="/webfiles/**"        security="none"/>
+<http pattern="/_rp/**"             security="none"/>
+<http pattern="/_cmsrest/**"        security="none"/>
+<http pattern="/_cmsinternal/**"    security="none"/>
+<http pattern="/_cmssessioncontext/**" security="none"/>
+```
+
+### Endpoint Security Rules
+
+Patterns are evaluated top-to-bottom; more specific rules must come before the catch-all:
+
+```xml
+<!-- Public content -->
+<intercept-url pattern="/$"       access="permitAll()" />
+<intercept-url pattern="/news**"  access="permitAll()" />
+<intercept-url pattern="/events**" access="permitAll()" />
+<intercept-url pattern="/about**" access="permitAll()" />
+
+<!-- Auth pages — allow both anonymous and authenticated -->
+<intercept-url pattern="/login.jsp*" access="isAnonymous() or hasRole('everybody')" />
+<intercept-url pattern="/logout*"    access="isAnonymous() or hasRole('everybody')" />
+
+<!-- Protected content -->
+<intercept-url pattern="/admin**"   access="hasRole('admin')" />
+<intercept-url pattern="/profile**" access="hasRole('everybody')" />
+
+<!-- Catch-all -->
+<intercept-url pattern="/**" access="hasRole('everybody')" />
+```
+
+### Common Issues
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| CSS/images return 403 | Missing static resource pattern | Add `<http pattern="/your-path/**" security="none"/>` |
+| Binaries/media return 403 | Missing `/content/**` pattern | Add both `/binaries/**` and `/content/**` exclusions |
+| All pages 403 after login | Overly restrictive catch-all | Use `hasRole('everybody')` not `denyAll()` on `/**` |
+| Login page returns 403 | Pattern allows only one auth state | Use `isAnonymous() or hasRole('everybody')` |
+
+### Best Practices
+
+1. **Order matters** — specific patterns before generic ones
+2. **Explicit over implicit** — always define patterns; never rely on defaults
+3. **Test static resources** after every config change (check browser Network tab for 403s)
+4. **Enable DEBUG logging** for `org.springframework.security` to diagnose issues
