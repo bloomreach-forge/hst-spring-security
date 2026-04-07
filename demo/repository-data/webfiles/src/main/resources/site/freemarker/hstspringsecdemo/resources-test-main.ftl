@@ -49,7 +49,8 @@
   </div>
   <p>
     Direct URL (open in a new tab, expect 200):<br/>
-    <code>${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/viognier-grapes-188185_640.jpg/hippogallery:original</code>
+    <#assign binaryUrl>${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/viognier-grapes-188185_640.jpg/hippogallery:original</#assign>
+    <code><a href="${binaryUrl}" target="_blank">${binaryUrl}</a></code>
   </p>
   <p>
     <em>The Spring Security <code>/content/**</code> pattern is not directly visible in the browser — it covers the
