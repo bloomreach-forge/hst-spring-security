@@ -117,16 +117,25 @@ Patterns are evaluated top-to-bottom; more specific rules must come before the c
 
 Start the demo project (`mvn -Pdevelopment verify` in `demo/`) then verify the following with the browser Network tab open.
 
-**Static resources (all must return 200 without logging in):**
+**Static resources — use the dedicated test page:**
 
-| What | Where to look |
+Navigate to `http://localhost:8080/site/resources-test` without logging in.
+The page is `permitAll()` and exercises every bypass pattern:
+
+| Pattern | What the test page shows |
 |---|---|
-| CSS | `/webfiles/site/css/bootstrap.css` — served via the webfiles servlet, covered by `/webfiles/**` |
-| JavaScript | `/webfiles/site/js/jquery-3.4.1.min.js` — same servlet, same pattern |
-| Gallery images | Load a news article detail page; images are served at `/binaries/content/gallery/...` paths |
-| `/content/**` internal path | The binaries servlet translates `/binaries/X` → `/content/X` internally; both patterns are required for binary resources to load |
+| `/webfiles/**` CSS | A Bootstrap-styled button — blue = CSS loaded |
+| `/webfiles/**` JS | Inline script prints the jQuery version if loaded |
+| `/binaries/**` + `/content/**` | Three gallery images rendered via `<img>` tags; broken image = missing pattern |
+| `/images/**` | Explained inline — reference pattern, not directly exercised in this demo |
 
-> **Note:** The `/css/**`, `/images/**`, and `/script/**` patterns are common safety exclusions for brXM sites that serve static files directly. In the demo all static assets go through the webfiles servlet (`/webfiles/**`), so those three patterns are not exercised but are included as reference for real-world projects.
+Direct URLs to verify in the Network tab:
+
+| Resource | URL |
+|---|---|
+| Bootstrap CSS | `http://localhost:8080/site/webfiles/site/css/bootstrap.css` |
+| jQuery | `http://localhost:8080/site/webfiles/site/js/jquery-3.4.1.min.js` |
+| Gallery image (binaries) | `http://localhost:8080/site/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/hippogallery:original` |
 
 **Public pages (accessible without login):**
 

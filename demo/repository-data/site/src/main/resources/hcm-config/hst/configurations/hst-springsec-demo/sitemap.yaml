@@ -56,3 +56,7 @@ definitions:
         hst:componentconfigurationid: hst:pages/admin
         hst:pagetitle: Admin
         hst:refId: admin
+      /resources-test:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/resources-test
+        hst:pagetitle: Static Resources Test
