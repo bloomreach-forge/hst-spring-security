@@ -135,7 +135,7 @@ Direct URLs to verify in the Network tab:
 |---|---|
 | Bootstrap CSS | `http://localhost:8080/site/webfiles/site/css/bootstrap.css` |
 | jQuery | `http://localhost:8080/site/webfiles/site/js/jquery-3.4.1.min.js` |
-| Gallery image (binaries) | `http://localhost:8080/site/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/hippogallery:original` |
+| Gallery image (binaries) | `http://localhost:8080/site/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/viognier-grapes-188185_640.jpg/hippogallery:original` |
 
 **Public pages (accessible without login):**
 

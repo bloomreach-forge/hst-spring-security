@@ -37,19 +37,19 @@
     A broken image (or 403 in the Network tab) means one of the two patterns is missing.
   </p>
   <div style="margin:8px 0">
-    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/hippogallery:original"
+    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/viognier-grapes-188185_640.jpg/hippogallery:original"
          alt="viognier grapes" style="max-height:150px; margin:4px; border:1px solid #ccc;"
          onerror="this.style.border='3px solid red'; this.alt='FAILED — check /binaries/** and /content/**'"/>
-    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/animal-2883_640.jpg/hippogallery:original"
+    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/animal-2883_640.jpg/animal-2883_640.jpg/hippogallery:original"
          alt="animal" style="max-height:150px; margin:4px; border:1px solid #ccc;"
          onerror="this.style.border='3px solid red'; this.alt='FAILED — check /binaries/** and /content/**'"/>
-    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/snail-193611_640.jpg/hippogallery:original"
+    <img src="${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/snail-193611_640.jpg/snail-193611_640.jpg/hippogallery:original"
          alt="snail" style="max-height:150px; margin:4px; border:1px solid #ccc;"
          onerror="this.style.border='3px solid red'; this.alt='FAILED — check /binaries/** and /content/**'"/>
   </div>
   <p>
     Direct URL (open in a new tab, expect 200):<br/>
-    <code>${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/hippogallery:original</code>
+    <code>${hstRequest.contextPath}/binaries/content/gallery/hstspringsecdemo/samples/viognier-grapes-188185_640.jpg/viognier-grapes-188185_640.jpg/hippogallery:original</code>
   </p>
   <p>
     <em>The Spring Security <code>/content/**</code> pattern is not directly visible in the browser — it covers the
