@@ -61,17 +61,17 @@
       Public endpoints - accessible without authentication.
       These allow visitors to browse site content (news, events, etc.) without logging in.
     -->
-    <intercept-url pattern="/$" access="permitAll()" />
-    <intercept-url pattern="/news**" access="permitAll()" />
-    <intercept-url pattern="/events**" access="permitAll()" />
-    <intercept-url pattern="/about**" access="permitAll()" />
+    <intercept-url pattern="/" access="permitAll()" />
+    <intercept-url pattern="/news/**" access="permitAll()" />
+    <intercept-url pattern="/events/**" access="permitAll()" />
+    <intercept-url pattern="/about/**" access="permitAll()" />
 
     <!--
       Admin/Protected endpoints - requires authentication.
       Users must have 'everybody' role to access these sections.
     -->
-    <intercept-url pattern="/admin**" access="hasRole('admin')" />
-    <intercept-url pattern="/profile**" access="hasRole('everybody')" />
+    <intercept-url pattern="/admin/**" access="hasRole('admin')" />
+    <intercept-url pattern="/profile/**" access="hasRole('everybody')" />
 
     <!--
       Catch-all: Default behavior for any remaining patterns.

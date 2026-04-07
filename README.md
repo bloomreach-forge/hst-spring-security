@@ -79,22 +79,26 @@ Full set of static resource exclusions for a typical brXM site:
 
 ### Endpoint Security Rules
 
-Patterns are evaluated top-to-bottom; more specific rules must come before the catch-all:
+Patterns are evaluated top-to-bottom; more specific rules must come before the catch-all.
+
+**Pattern pitfalls to avoid:**
+- Use `/` for the homepage — not `/$` (`$` is not an Ant wildcard and silently fails to match)
+- Use `/**` for sub-path wildcards — not `**` suffix (e.g. `/news/**` not `/news**`; `**` embedded in a token does not cross path separators)
 
 ```xml
 <!-- Public content -->
-<intercept-url pattern="/$"       access="permitAll()" />
-<intercept-url pattern="/news**"  access="permitAll()" />
-<intercept-url pattern="/events**" access="permitAll()" />
-<intercept-url pattern="/about**" access="permitAll()" />
+<intercept-url pattern="/"         access="permitAll()" />
+<intercept-url pattern="/news/**"  access="permitAll()" />
+<intercept-url pattern="/events/**" access="permitAll()" />
+<intercept-url pattern="/about/**" access="permitAll()" />
 
 <!-- Auth pages — allow both anonymous and authenticated -->
 <intercept-url pattern="/login.jsp*" access="isAnonymous() or hasRole('everybody')" />
 <intercept-url pattern="/logout*"    access="isAnonymous() or hasRole('everybody')" />
 
 <!-- Protected content -->
-<intercept-url pattern="/admin**"   access="hasRole('admin')" />
-<intercept-url pattern="/profile**" access="hasRole('everybody')" />
+<intercept-url pattern="/admin/**"   access="hasRole('admin')" />
+<intercept-url pattern="/profile/**" access="hasRole('everybody')" />
 
 <!-- Catch-all -->
 <intercept-url pattern="/**" access="hasRole('everybody')" />
@@ -108,6 +112,39 @@ Patterns are evaluated top-to-bottom; more specific rules must come before the c
 | Binaries/media return 403 | Missing `/content/**` pattern | Add both `/binaries/**` and `/content/**` exclusions |
 | All pages 403 after login | Overly restrictive catch-all | Use `hasRole('everybody')` not `denyAll()` on `/**` |
 | Login page returns 403 | Pattern allows only one auth state | Use `isAnonymous() or hasRole('everybody')` |
+
+### Testing the Demo
+
+Start the demo project (`mvn -Pdevelopment verify` in `demo/`) then verify the following with the browser Network tab open.
+
+**Static resources (all must return 200 without logging in):**
+
+| What | Where to look |
+|---|---|
+| CSS | `/webfiles/site/css/bootstrap.css` — served via the webfiles servlet, covered by `/webfiles/**` |
+| JavaScript | `/webfiles/site/js/jquery-3.4.1.min.js` — same servlet, same pattern |
+| Gallery images | Load a news article detail page; images are served at `/binaries/content/gallery/...` paths |
+| `/content/**` internal path | The binaries servlet translates `/binaries/X` → `/content/X` internally; both patterns are required for binary resources to load |
+
+> **Note:** The `/css/**`, `/images/**`, and `/script/**` patterns are common safety exclusions for brXM sites that serve static files directly. In the demo all static assets go through the webfiles servlet (`/webfiles/**`), so those three patterns are not exercised but are included as reference for real-world projects.
+
+**Public pages (accessible without login):**
+
+- `http://localhost:8080/site/` — homepage
+- `http://localhost:8080/site/news` — news listing
+- `http://localhost:8080/site/events` — events listing
+- `http://localhost:8080/site/about` — about page
+
+**Protected pages (redirect to login when unauthenticated):**
+
+- `http://localhost:8080/site/profile` — requires `everybody` role; log in as `editor` / `editor`
+- `http://localhost:8080/site/admin` — requires `admin` role; log in as `siteadmin` / `siteadmin`
+
+> **Demo users:** `editor/editor` (profile access), `siteadmin/siteadmin` (admin access). Do not use the CMS `admin` user — it has Hippo-internal system roles, not the `admin` Spring Security role.
+
+**CSRF protection** — enabled by default in Spring Security 4+. The demo logout form in `base-top-menu.ftl` includes `${_csrf.token}` in a hidden field. To verify it works: attempt a POST to `/logout` without the token and confirm you receive a 403.
+
+**Session management** — log in, access `/profile`, then log out. Confirm the session is invalidated and a subsequent request to `/profile` redirects to `/login.jsp`.
 
 ### Best Practices
 

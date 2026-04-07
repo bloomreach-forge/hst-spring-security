@@ -41,3 +41,18 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/eventslist
           hst:relativecontentpath: ${parent}/${1}
+      /about:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/about
+        hst:pagetitle: About
+        hst:refId: about
+      /profile:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/profile
+        hst:pagetitle: Profile
+        hst:refId: profile
+      /admin:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/admin
+        hst:pagetitle: Admin
+        hst:refId: admin

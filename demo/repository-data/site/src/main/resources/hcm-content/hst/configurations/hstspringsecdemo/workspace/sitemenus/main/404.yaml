@@ -1,0 +1,4 @@
+/hst:hst/hst:configurations/hstspringsecdemo/hst:workspace/hst:sitemenus/main/404:
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: pagenotfound
+  hst:repobased: false

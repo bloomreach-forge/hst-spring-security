@@ -23,3 +23,12 @@ definitions:
       /eventspage-main:
         jcr:primaryType: hst:template
         hst:renderpath: webfile:/freemarker/hstdefault/eventspage-main.ftl
+      /about-main:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/hstspringsecdemo/about-main.ftl
+      /profile-main:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/hstspringsecdemo/profile-main.ftl
+      /admin-main:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/hstspringsecdemo/admin-main.ftl
