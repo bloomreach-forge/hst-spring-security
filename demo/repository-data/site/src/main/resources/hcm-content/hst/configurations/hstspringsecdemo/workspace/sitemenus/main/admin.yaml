@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/hstspringsecdemo/hst:workspace/hst:sitemenus/main/admin:
+  .meta:order-before: '404'
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: admin
+  hst:repobased: false
