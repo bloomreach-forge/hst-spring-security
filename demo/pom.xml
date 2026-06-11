@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>16.0.0</version>
+    <version>17.0.0</version>
   </parent>
 
   <name>HST Spring Security Support Demo Project</name>
   <description>HST Spring Security Support Demo Project</description>
   <groupId>org.onehippo.forge.hst-springsec</groupId>
   <artifactId>hst-springsec-demo</artifactId>
-  <version>5.0.2-SNAPSHOT</version>
+  <version>6.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!--
@@ -63,10 +63,10 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <spring-security.version>6.3.0</spring-security.version>
+    <spring-security.version>7.0.5</spring-security.version>
     <hst-springsec.version>${project.version}</hst-springsec.version>
     
-    <essentials.version>16.0.0</essentials.version>
+    <essentials.version>17.0.0</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -169,46 +169,6 @@
           <exclusion>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-taglibs</artifactId>
-        <version>${spring-security.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
           </exclusion>
         </exclusions>
       </dependency>

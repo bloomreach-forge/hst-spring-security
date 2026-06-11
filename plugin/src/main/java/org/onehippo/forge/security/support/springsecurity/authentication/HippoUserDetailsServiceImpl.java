@@ -15,7 +15,7 @@
  */
 package org.onehippo.forge.security.support.springsecurity.authentication;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.hippoecm.hst.security.TransientUser;
 import org.hippoecm.hst.security.impl.RepositoryAuthenticationProvider;
 import org.hippoecm.hst.site.HstServices;
