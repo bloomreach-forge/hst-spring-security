@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/hstspringsecdemo/hst:workspace/hst:sitemenus/main/profile:
+  .meta:order-before: news
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: profile
+  hst:repobased: false

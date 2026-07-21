@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2022 Bloomreach, Inc. (https://www.bloomreach.com)
+  Copyright 2026 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,14 +20,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>16.0.0</version>
+    <version>17.1.1</version>
   </parent>
 
   <name>HST Spring Security Support</name>
   <description>HST Spring Security Support</description>
   <groupId>org.onehippo.forge.hst-springsec</groupId>
   <artifactId>hst-springsec-plugin</artifactId>
-  <version>5.0.1</version>
+  <version>6.0.0</version>
   <packaging>pom</packaging>
   <url>https://bloomreach-forge.github.io/hst-spring-security/</url>
 
@@ -65,7 +65,7 @@
 
   <issueManagement>
     <system>Jira</system>
-    <url>https://issues.onehippo.com/browse/FORGE</url>
+    <url>https://bloomreach.atlassian.net/browse/FORGE</url>
   </issueManagement>
 
   <distributionManagement>
@@ -80,7 +80,7 @@
     <repository>
       <id>bloomreach</id>
       <name>Bloomreach Maven 2 repository</name>
-      <url>http://maven.bloomreach.com/maven2/</url>
+      <url>https://maven.bloomreach.com/repository/maven2/</url>
       <snapshots />
       <releases>
         <updatePolicy>never</updatePolicy>
@@ -273,48 +273,7 @@
       </dependency>
 
       <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-taglibs</artifactId>
-        <version>${spring-security.version}</version>
-        <scope>provided</scope>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>commons-lang3</groupId>
+        <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>${commons-lang3.version}</version>
         <scope>provided</scope>
@@ -330,7 +289,7 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
-        <version>${slf4j.version}</version>
+        <version>${slf4j2.version}</version>
         <scope>provided</scope>
       </dependency>
 

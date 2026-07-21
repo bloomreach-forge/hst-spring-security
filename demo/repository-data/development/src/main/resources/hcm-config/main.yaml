@@ -7,6 +7,11 @@ definitions:
         # this value tells auto-export to update existing definitions but not create new definitions here
         # add path mappings to export development data into this module
         value: ['repository-data/development', 'repository-data/site-development:hstspringsecdemo']
+    /hippo:configuration/hippo:groups/admin:
+      hipposys:members:
+        operation: add
+        type: string
+        value: [siteadmin]
     /hippo:configuration/hippo:groups/author:
       hipposys:members:
         operation: add

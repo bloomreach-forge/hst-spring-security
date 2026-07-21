@@ -1,4 +1,4 @@
 /hst:hst/hst:configurations/hstspringsecdemo/hst:workspace/hst:sitemenus/main/home:
-  .meta:order-before: events
+  .meta:order-before: admin
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: root

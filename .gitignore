@@ -40,3 +40,7 @@ Temporary Items
 *.sassc
 
 *.tar.gz
+
+# Claude Code
+.claude/
+CLAUDE.md
