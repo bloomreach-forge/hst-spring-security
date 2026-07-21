@@ -43,7 +43,7 @@ You can push it and GitHub Pages will be served for the site automatically.
 
 ### Critical Change: Explicit Endpoint Definitions Required
 
-Spring Security 6 requires **every endpoint to be explicitly defined**. Unlike earlier versions, undefined endpoints return 403 Forbidden — this includes static resources (CSS, JS, images) and binary servlet paths.
+As of spring Security 6 it requires **every endpoint to be explicitly defined**. Unlike earlier versions, undefined endpoints return 403 Forbidden — this includes static resources (CSS, JS, images) and binary servlet paths.
 
 ### Static Resources and the `/binaries` Servlet
 
@@ -97,7 +97,7 @@ Patterns are evaluated top-to-bottom; more specific rules must come before the c
 <intercept-url pattern="/logout*"    access="isAnonymous() or hasRole('everybody')" />
 
 <!-- Protected content -->
-<intercept-url pattern="/admin/**"   access="hasRole('admin')" />
+<intercept-url pattern="/admin/**"   access="hasRole('xm.default-user.system-admin')" />
 <intercept-url pattern="/profile/**" access="hasRole('everybody')" />
 
 <!-- Catch-all -->
@@ -147,7 +147,7 @@ Direct URLs to verify in the Network tab:
 **Protected pages (redirect to login when unauthenticated):**
 
 - `http://localhost:8080/site/profile` — requires `everybody` role; log in as `editor` / `editor`
-- `http://localhost:8080/site/admin` — requires `admin` role; log in as `siteadmin` / `siteadmin`
+- `http://localhost:8080/site/admin` — requires `xm.default-user.system-admin` role; log in as `siteadmin` / `siteadmin`
 
 > **Demo users:** `editor/editor` (profile access), `siteadmin/siteadmin` (admin access). Do not use the CMS `admin` user — it has Hippo-internal system roles, not the `admin` Spring Security role.
 

@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="<@hst.webfile  path="/css/cms-request.css"/>" type="text/css"/>
     </#if>
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" xhtml=true/>
+        <script src="<@hst.webfile  path="/js/jquery-3.4.1.min.js"/>" type="text/javascript"></script>
   </head>
   <body>
     <div class="container">

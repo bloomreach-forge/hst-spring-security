@@ -32,7 +32,7 @@
   <http pattern="/_cmsinternal/**" security="none"/>
   <http pattern="/_cmssessioncontext/**" security="none"/>
 
-  <http auto-config="true" use-expressions="true" disable-url-rewriting="false">
+  <http auto-config="true" disable-url-rewriting="false">
 
     <!--
       As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.
@@ -71,7 +71,7 @@
       Admin/Protected endpoints - requires authentication.
       Users must have 'everybody' role to access these sections.
     -->
-    <intercept-url pattern="/admin/**" access="hasRole('admin')" />
+    <intercept-url pattern="/admin/**" access="hasRole('xm.default-user.system-admin')" />
     <intercept-url pattern="/profile/**" access="hasRole('everybody')" />
 
     <!--

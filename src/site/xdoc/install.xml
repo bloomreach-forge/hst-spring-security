@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2021 BloomReach, Inc. (https://www.bloomreach.com)
+  Copyright 2026 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -81,9 +81,9 @@
         <div class="brush: xml">
           <source><![CDATA[
     <repository>
-      <id>hippo-forge</id>
+      <id>bloomreach-forge</id>
       <name>Bloomreach Forge maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2-forge/</url>
+      <url>https://maven.bloomreach.com/maven2-forge/</url>
     </repository>
         ]]></source>
         </div>
@@ -97,7 +97,6 @@
 
         <div class="brush: xml">
           <source><![CDATA[
-    <spring.security.version>version.number</spring.security.version>
     <forge.hst-springsec.version>version.number</forge.hst-springsec.version>
         ]]></source>
         </div>
@@ -113,7 +112,7 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-core</artifactId>
-      <version>${spring.security.version}</version>
+      <version>${spring-security.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework</groupId>
@@ -141,7 +140,7 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
-      <version>${spring.security.version}</version>
+      <version>${spring-security.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework</groupId>
@@ -169,7 +168,7 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-      <version>${spring.security.version}</version>
+      <version>${spring-security.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework</groupId>
@@ -193,7 +192,7 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-taglibs</artifactId>
-      <version>${spring.security.version}</version>
+      <version>${spring-security.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework</groupId>
