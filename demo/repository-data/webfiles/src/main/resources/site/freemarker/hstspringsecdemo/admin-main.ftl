@@ -7,5 +7,5 @@
   <#else>
     <p>You should not see this page without admin role.</p>
   </#if>
-  <p>Spring Security pattern: <code>/admin/**</code> &rarr; <code>hasRole('admin')</code></p>
+  <p>Spring Security pattern: <code>/admin/**</code> &rarr; <code>hasRole('xm.default-user.system-admin')</code></p>
 </div>

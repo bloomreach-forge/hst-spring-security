@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2021 BloomReach, Inc. (https://www.bloomreach.com)
-  Copyright 2011-2022 Bloomreach, Inc. (https://www.bloomreach.com)
+  Copyright 2026 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -144,6 +143,12 @@
   <http pattern="/images/**" security="none"/>
   <http pattern="/script/**" security="none"/>
   <http pattern="/binaries/**" security="none"/>
+  <!--
+    The /binaries endpoint is a servlet that internally translates requests like:
+    /binaries/content/gallery/image.jpg to /content/gallery/image.jpg.
+    Therefore, we must explicitly allow both /binaries/** and /content/** patterns.
+  -->
+  <http pattern="/content/**" security="none"/>
   <http pattern="/webfiles/**" security="none" />
 
   <!-- Channel Manager requests may bypass authentication -->
@@ -152,7 +157,7 @@
   <http pattern="/_cmsinternal/**" security="none"/>
   <http pattern="/_cmssessioncontext/**" security="none"/>
 
-  <http auto-config="true" use-expressions="true" disable-url-rewriting="false">
+  <http auto-config="true" disable-url-rewriting="false">
 
     <!--
       As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.
@@ -339,13 +344,13 @@
         </em>
         <p>
           HST Spring Security Support supports the same feature for authorization as the default HST Security module provides.
-          So, please refer to <a href="https://xmdocumentation.bloomreach.com/14/library/concepts/security/delivery-tier-authentication.html">Delivery Tier Authentication Configuration</a>
+          So, please refer to <a href="https://xmdocumentation.bloomreach.com/library/concepts/security/delivery-tier-authentication.html">Delivery Tier Authentication Configuration</a>
           in order to learn how to set authentication.
         </p>
         <p>In case you need Repository Level Authorization and make use of
           <a href="https://xmdocumentation.bloomreach.com/library/concepts/security/delivery-tier-authorization.html">Delivery Tier Authorization Configuration</a>
           (using hst:subjectbasedsession property) you should set
-          <a href="https://docs.spring.io/spring-security/site/docs/5.3.x/reference/html5/#nsa-authentication-manager-attributes">'erase-credentials=false'</a>
+          <a href="https://docs.spring.io/spring-security/reference/servlet/appendix/namespace/authentication-manager.html#nsa-authentication-manager">'erase-credentials=false'</a>
           in the authentication manager configuration.
         </p>
       </subsection>
@@ -354,8 +359,8 @@
           Also, you can use JavaEE standard Security APIs now in your components or servlet/filter for programmatic security checks such as:
         </p>
         <ul>
-          <li><code>javax.servlet.http.HttpServletRequest#getUserPrincipal()</code></li>
-          <li><code>javax.servlet.http.HttpServletRequest#isUserInRole(java.lang.String role)</code></li>
+          <li><code>jakarta.servlet.http.HttpServletRequest#getUserPrincipal()</code></li>
+          <li><code>jakarta.servlet.http.HttpServletRequest#isUserInRole(java.lang.String role)</code></li>
         </ul>
       </subsection>
     </section>

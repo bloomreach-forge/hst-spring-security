@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright 2011-2024 Bloomreach, Inc. (https://www.bloomreach.com)
+  Copyright 2026 Bloomreach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -32,6 +32,11 @@
           <th>
             brXM Release Version
           </th>
+        </tr>
+        <tr>
+          <td>6.x</td>
+          <td>7.0.6</td>
+          <td>17.x</td>
         </tr>
         <tr>
           <td>5.x</td>
@@ -80,6 +85,15 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="6.0.0">
+        <p class="smallinfo">Release date: 20 July 2026</p>
+        <ul>
+          <li>
+            <a href='https://bloomreach.atlassian.net/browse/FORGE-590'>FORGE-590</a><br/>
+            Upgrade plugin to support brXM 17, JDK21, and Spring Security 7.0.6
+          </li>
+        </ul>
+      </subsection>
       <subsection name="5.0.1">
         <p class="smallinfo">Release date: TBD</p>
         <ul>
