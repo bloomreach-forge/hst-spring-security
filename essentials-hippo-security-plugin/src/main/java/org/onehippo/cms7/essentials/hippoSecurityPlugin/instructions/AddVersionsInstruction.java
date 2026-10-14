@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2022 Bloomreach Inc. (https://www.bloomreach.com)
+ * Copyright 2018-2026 Bloomreach Inc. (https://www.bloomreach.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,16 +23,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.function.BiConsumer;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.maven.model.Model;
-import org.apache.maven.model.Parent;
 import org.onehippo.cms7.essentials.plugin.sdk.utils.MavenModelUtils;
 import org.onehippo.cms7.essentials.sdk.api.install.Instruction;
 import org.onehippo.cms7.essentials.sdk.api.model.Module;
-import org.onehippo.cms7.essentials.sdk.api.model.rest.MavenRepository;
-import org.onehippo.cms7.essentials.sdk.api.service.MavenModelService;
-import org.onehippo.cms7.essentials.sdk.api.service.MavenRepositoryService;
 import org.onehippo.cms7.essentials.sdk.api.service.ProjectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +36,9 @@ import org.slf4j.LoggerFactory;
 public class AddVersionsInstruction implements Instruction {
 
     private static final Logger log = LoggerFactory.getLogger(AddVersionsInstruction.class);
+
+    // spring-security.version is not added: it is managed by the brXM parent pom, in line with its Spring Framework
+    static final String HST_SPRINGSEC_VERSION = "hst-springsec.version";
 
     @Inject
     private ProjectService projectService;
@@ -51,23 +50,20 @@ public class AddVersionsInstruction implements Instruction {
         if (pomModel == null) {
             return Status.FAILED;
         }
-        java.util.Properties javaProperties = new Properties();
+        final Properties versions = new Properties();
         try (final InputStream resourceAsStream = getClass().getResourceAsStream("/version.properties")) {
-            javaProperties.load(resourceAsStream);
-            final Properties properties = pomModel.getProperties();
-            properties.setProperty("hippo.forge.hst-springsec.version", javaProperties.getProperty("hippo.forge.hst-springsec.version"));
-            properties.setProperty("spring.security.version", javaProperties.getProperty("spring.security.version"));
-
+            versions.load(resourceAsStream);
         } catch (IOException e) {
             log.error("Error executing versions instruction:", e);
+            return Status.FAILED;
         }
+        pomModel.getProperties().setProperty(HST_SPRINGSEC_VERSION, versions.getProperty(HST_SPRINGSEC_VERSION));
 
-        MavenModelUtils.writePom(pomModel, pom);
-        return Status.SUCCESS;
+        return MavenModelUtils.writePom(pomModel, pom) ? Status.SUCCESS : Status.FAILED;
     }
 
     @Override
     public void populateChangeMessages(final BiConsumer<Type, String> changeMessageQueue) {
-        changeMessageQueue.accept(Type.EXECUTE, "Add spring and plugin versions");
+        changeMessageQueue.accept(Type.EXECUTE, "Add the HST Spring Security Support version to the project POM.");
     }
 }

@@ -44,6 +44,24 @@
       <artifactId>hippo-essentials-plugin-sdk-implementation</artifactId>
     </dependency>
 
+    <!-- Test: load the bundled siteFiles templates against the plugin classes -->
+    <dependency>
+      <groupId>org.onehippo.forge.hst-springsec</groupId>
+      <artifactId>hst-springsec</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7.hst.components</groupId>
+      <artifactId>hst-security</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>

@@ -63,9 +63,8 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <spring-security.version>7.0.5</spring-security.version>
     <hst-springsec.version>${project.version}</hst-springsec.version>
-    
+
     <essentials.version>17.1.1</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>

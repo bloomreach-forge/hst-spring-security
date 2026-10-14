@@ -24,15 +24,17 @@
         <file action="copy" binary="false" overwrite="false" source="siteFiles/applicationContext.xml" target="{{siteWebInfRoot}}/applicationContext.xml"/>
     </instructionSet>
     <instructionSet group="default">
-        <mavenDependency artifactId="spring-security-taglibs" groupId="org.springframework.security" targetPom="site" version="${spring.security.version}"/>
-        <mavenDependency artifactId="spring-security-config" groupId="org.springframework.security" targetPom="site" version="${spring.security.version}"/>
-        <mavenDependency artifactId="spring-security-core" groupId="org.springframework.security" targetPom="site" version="${spring.security.version}"/>
-        <mavenDependency artifactId="spring-security-web" groupId="org.springframework.security" targetPom="site" version="${spring.security.version}"/>
-        <mavenDependency artifactId="hst-springsec" groupId="org.onehippo.forge.hst-springsec" targetPom="site" version="${hippo.forge.hst-springsec.version}"/>
-
+        <!-- Project POM: Forge repository, versions and managed dependencies (with Spring exclusions) -->
         <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.ForgeRepositoryInstruction"/>
-        <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.ExcludeArtifactsInstruction"/>
-        <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.FilterMappingsInstruction"/>
         <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.AddVersionsInstruction"/>
+        <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.DependencyManagementInstruction"/>
+
+        <!-- Site components: versions are managed in the project POM -->
+        <mavenDependency artifactId="spring-security-core" groupId="org.springframework.security" targetPom="site-components" scope="runtime"/>
+        <mavenDependency artifactId="spring-security-web" groupId="org.springframework.security" targetPom="site-components" scope="runtime"/>
+        <mavenDependency artifactId="spring-security-config" groupId="org.springframework.security" targetPom="site-components" scope="runtime"/>
+        <mavenDependency artifactId="hst-springsec" groupId="org.onehippo.forge.hst-springsec" targetPom="site-components" scope="runtime"/>
+
+        <execute class="org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions.FilterMappingsInstruction"/>
     </instructionSet>
 </instructions>
