@@ -16,7 +16,7 @@
 
 package org.onehippo.cms7.essentials.hippoSecurityPlugin.rest;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import javax.jcr.Session;
 
 import org.onehippo.cms7.essentials.sdk.api.service.ContentTypeService;

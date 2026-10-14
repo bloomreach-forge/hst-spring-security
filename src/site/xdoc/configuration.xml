@@ -243,7 +243,6 @@
 
   <beans:bean id="hippoUserDetailsService" class="org.onehippo.forge.security.support.springsecurity.authentication.HippoUserDetailsServiceImpl">
     <beans:property name="defaultRoleName" value="everybody" />
-    <beans:property name="roleDomainName" value="everywhere" />
   </beans:bean>
 
   <beans:bean id="hippoAuthenticationProvider"

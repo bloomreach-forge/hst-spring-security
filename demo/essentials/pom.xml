@@ -24,6 +24,11 @@
       <version>${essentials.version}</version>
       <type>pom</type>
     </dependency>
+    <dependency>
+      <groupId>org.onehippo.forge.hst-springsec</groupId>
+      <artifactId>hst-springsec-essentials</artifactId>
+      <version>${hst-springsec.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <resources>

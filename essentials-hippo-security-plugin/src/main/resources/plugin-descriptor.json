@@ -1,9 +1,9 @@
 {
   "vendor" : {
-    "name" : "Hippo",
-    "url" : "https://www.onehippo.com"
+    "name" : "Bloomreach",
+    "url" : "https://www.bloomreach.com"
   },
-  "name" : "Hippo spring security  plugin",
+  "name" : "HST Spring Security Support",
   "introduction" : "HST Spring Security Support project provides seamless integration with Spring Security for HST-2 SITE applications.",
   "description" : "HST Spring Security Support project provides seamless integration with Spring Security for HST-2 SITE applications.",
   "id" : "hippoSecurityPlugin",

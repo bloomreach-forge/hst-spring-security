@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>17.1.1</version>
+    <version>17.3.0</version>
   </parent>
 
   <name>HST Spring Security Support Demo Project</name>
@@ -63,10 +63,9 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <spring-security.version>7.0.5</spring-security.version>
     <hst-springsec.version>${project.version}</hst-springsec.version>
-    
-    <essentials.version>17.1.1</essentials.version>
+
+    <essentials.version>17.3.0</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
