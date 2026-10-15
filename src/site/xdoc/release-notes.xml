@@ -85,6 +85,15 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="6.0.1">
+        <p class="smallinfo">Release date: 14 October 2026</p>
+        <ul>
+          <li>
+            <a href='https://bloomreach.atlassian.net/browse/FORGE-434'>FORGE-434</a><br/>
+            Fixes to essentials plugin for brXM 17
+          </li>
+        </ul>
+      </subsection>
       <subsection name="6.0.0">
         <p class="smallinfo">Release date: 20 July 2026</p>
         <ul>

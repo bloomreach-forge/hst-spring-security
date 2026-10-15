@@ -19,21 +19,20 @@ package org.onehippo.cms7.essentials.hippoSecurityPlugin.instructions;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.onehippo.cms7.essentials.sdk.api.install.Instruction;
 import org.onehippo.cms7.essentials.sdk.api.model.Module;
 import org.onehippo.cms7.essentials.sdk.api.model.rest.MavenRepository;
-import org.onehippo.cms7.essentials.sdk.api.service.MavenModelService;
 import org.onehippo.cms7.essentials.sdk.api.service.MavenRepositoryService;
 
 public class ForgeRepositoryInstruction implements Instruction {
 
     private static final MavenRepository FORGE_REPOSITORY = new MavenRepository();
     static {
-        FORGE_REPOSITORY.setId("hippo-forge");
-        FORGE_REPOSITORY.setName("Hippo Bloomreach Forge Repository");
-        FORGE_REPOSITORY.setUrl("https://maven.onehippo.com/maven2-forge/");
+        FORGE_REPOSITORY.setId("bloomreach-forge");
+        FORGE_REPOSITORY.setName("Bloomreach Forge maven 2 repository.");
+        FORGE_REPOSITORY.setUrl("https://maven.bloomreach.com/repository/maven2-forge/");
         final MavenRepository.Policy releasePolicy = new MavenRepository.Policy();
         releasePolicy.setUpdatePolicy("never");
         releasePolicy.setChecksumPolicy("fail");
